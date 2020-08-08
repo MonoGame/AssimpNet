@@ -32,7 +32,7 @@ namespace Assimp
     /// Represents an Assimp Import/Export context that load or save models using the unmanaged library. Additionally, conversion
     /// functionality is offered to bypass loading model data into managed memory.
     /// </summary>
-    public sealed class AssimpContext : IDisposable
+    public sealed class AssimpContext : IDisposable, IAssimpContext
     {
         private bool m_isDisposed;
         private Dictionary<String, PropertyConfig> m_configs;
@@ -73,7 +73,7 @@ namespace Assimp
             }
             set
             {
-                if(m_scale != value)
+                if (m_scale != value)
                 {
                     m_scale = value;
                     m_buildMatrix = true;
@@ -93,7 +93,7 @@ namespace Assimp
             }
             set
             {
-                if(m_xAxisRotation != value)
+                if (m_xAxisRotation != value)
                 {
                     m_xAxisRotation = value;
                     m_buildMatrix = true;
@@ -113,7 +113,7 @@ namespace Assimp
             }
             set
             {
-                if(m_yAxisRotation != value)
+                if (m_yAxisRotation != value)
                 {
                     m_yAxisRotation = value;
                     m_buildMatrix = true;
@@ -133,7 +133,7 @@ namespace Assimp
             }
             set
             {
-                if(m_zAxisRotation != value)
+                if (m_zAxisRotation != value)
                 {
                     m_zAxisRotation = value;
                     m_buildMatrix = true;
@@ -205,7 +205,7 @@ namespace Assimp
         {
             CheckDisposed();
 
-            if(stream == null || stream.CanRead != true)
+            if (stream == null || stream.CanRead != true)
                 throw new AssimpException("stream", "Can't read from the stream it's null or write-only");
 
             IntPtr ptr = IntPtr.Zero;
@@ -215,12 +215,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFileFromStream(stream, PostProcessSteps.None, formatHint, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(postProcessFlags != PostProcessSteps.None)
+                if (postProcessFlags != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, postProcessFlags);
 
                 return Scene.FromUnmanagedScene(ptr);
@@ -229,7 +229,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                 {
                     AssimpLibrary.Instance.ReleaseImport(ptr);
                 }
@@ -272,11 +272,11 @@ namespace Assimp
             IntPtr fileIO = IntPtr.Zero;
 
             //Only do file checks if not using a custom IOSystem
-            if(UsingCustomIOSystem)
+            if (UsingCustomIOSystem)
             {
                 fileIO = m_ioSystem.AiFileIO;
             }
-            else if(String.IsNullOrEmpty(file) || !File.Exists(file))
+            else if (String.IsNullOrEmpty(file) || !File.Exists(file))
             {
                 throw new FileNotFoundException("Filename was null or could not be found", file);
             }
@@ -287,12 +287,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFile(file, PostProcessSteps.None, fileIO, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(postProcessFlags != PostProcessSteps.None)
+                if (postProcessFlags != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, postProcessFlags);
 
                 return Scene.FromUnmanagedScene(ptr);
@@ -301,7 +301,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                 {
                     AssimpLibrary.Instance.ReleaseImport(ptr);
                 }
@@ -347,7 +347,7 @@ namespace Assimp
             IntPtr fileIO = IntPtr.Zero;
             IntPtr scenePtr = IntPtr.Zero;
 
-            if(scene == null)
+            if (scene == null)
                 throw new ArgumentNullException("scene", "Scene must exist.");
 
             if (!TestIfExportIdIsValid(exportFormatId))
@@ -363,7 +363,7 @@ namespace Assimp
             }
             finally
             {
-                if(scenePtr != IntPtr.Zero)
+                if (scenePtr != IntPtr.Zero)
                     Scene.FreeUnmanagedScene(scenePtr);
             }
         }
@@ -401,7 +401,7 @@ namespace Assimp
             IntPtr fileIO = IntPtr.Zero;
             IntPtr scenePtr = IntPtr.Zero;
 
-            if(scene == null)
+            if (scene == null)
                 throw new ArgumentNullException("scene", "Scene must exist.");
 
             if (!TestIfExportIdIsValid(exportFormatId))
@@ -415,7 +415,7 @@ namespace Assimp
             }
             finally
             {
-                if(scenePtr != IntPtr.Zero)
+                if (scenePtr != IntPtr.Zero)
                     Scene.FreeUnmanagedScene(scenePtr);
             }
         }
@@ -482,11 +482,11 @@ namespace Assimp
             IntPtr fileIO = IntPtr.Zero;
 
             //Only do file checks if not using a custom IOSystem
-            if(UsingCustomIOSystem)
+            if (UsingCustomIOSystem)
             {
                 fileIO = m_ioSystem.AiFileIO;
             }
-            else if(String.IsNullOrEmpty(inputFilename) || !File.Exists(inputFilename))
+            else if (String.IsNullOrEmpty(inputFilename) || !File.Exists(inputFilename))
             {
                 throw new FileNotFoundException("Filename was null or could not be found", inputFilename);
             }
@@ -497,12 +497,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFile(inputFilename, PostProcessSteps.None, fileIO, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(importProcessSteps != PostProcessSteps.None)
+                if (importProcessSteps != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, importProcessSteps);
 
                 ReturnCode status = AssimpLibrary.Instance.ExportScene(ptr, exportFormatId, outputFilename, fileIO, exportProcessSteps);
@@ -513,7 +513,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                     AssimpLibrary.Instance.ReleaseImport(ptr);
             }
         }
@@ -573,11 +573,11 @@ namespace Assimp
             IntPtr fileIO = IntPtr.Zero;
 
             //Only do file checks if not using a custom IOSystem
-            if(UsingCustomIOSystem)
+            if (UsingCustomIOSystem)
             {
                 fileIO = m_ioSystem.AiFileIO;
             }
-            else if(String.IsNullOrEmpty(inputFilename) || !File.Exists(inputFilename))
+            else if (String.IsNullOrEmpty(inputFilename) || !File.Exists(inputFilename))
             {
                 throw new FileNotFoundException("Filename was null or could not be found", inputFilename);
             }
@@ -588,12 +588,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFile(inputFilename, PostProcessSteps.None, fileIO, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(importProcessSteps != PostProcessSteps.None)
+                if (importProcessSteps != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, importProcessSteps);
 
                 return AssimpLibrary.Instance.ExportSceneToBlob(ptr, exportFormatId, exportProcessSteps);
@@ -602,7 +602,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                     AssimpLibrary.Instance.ReleaseImport(ptr);
             }
         }
@@ -665,7 +665,7 @@ namespace Assimp
         {
             CheckDisposed();
 
-            if(inputStream == null || inputStream.CanRead != true)
+            if (inputStream == null || inputStream.CanRead != true)
                 throw new AssimpException("stream", "Can't read from the stream it's null or write-only");
 
             if (!TestIfExportIdIsValid(exportFormatId))
@@ -678,12 +678,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFileFromStream(inputStream, importProcessSteps, importFormatHint, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(importProcessSteps != PostProcessSteps.None)
+                if (importProcessSteps != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, importProcessSteps);
 
                 ReturnCode status = AssimpLibrary.Instance.ExportScene(ptr, exportFormatId, outputFilename, exportProcessSteps);
@@ -694,7 +694,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                     AssimpLibrary.Instance.ReleaseImport(ptr);
             }
         }
@@ -750,7 +750,7 @@ namespace Assimp
         {
             CheckDisposed();
 
-            if(inputStream == null || inputStream.CanRead != true)
+            if (inputStream == null || inputStream.CanRead != true)
                 throw new AssimpException("stream", "Can't read from the stream it's null or write-only");
 
             if (!TestIfExportIdIsValid(exportFormatId))
@@ -763,12 +763,12 @@ namespace Assimp
             {
                 ptr = AssimpLibrary.Instance.ImportFileFromStream(inputStream, importProcessSteps, importFormatHint, m_propStore);
 
-                if(ptr == IntPtr.Zero)
+                if (ptr == IntPtr.Zero)
                     throw new AssimpException("Error importing file: " + AssimpLibrary.Instance.GetErrorString());
 
                 TransformScene(ptr);
 
-                if(importProcessSteps != PostProcessSteps.None)
+                if (importProcessSteps != PostProcessSteps.None)
                     ptr = AssimpLibrary.Instance.ApplyPostProcessing(ptr, importProcessSteps);
 
                 return AssimpLibrary.Instance.ExportSceneToBlob(ptr, exportFormatId, exportProcessSteps);
@@ -777,7 +777,7 @@ namespace Assimp
             {
                 CleanupImport();
 
-                if(ptr != IntPtr.Zero)
+                if (ptr != IntPtr.Zero)
                     AssimpLibrary.Instance.ReleaseImport(ptr);
             }
         }
@@ -795,7 +795,7 @@ namespace Assimp
         /// <param name="ioSystem">Custom file system implementation</param>
         public void SetIOSystem(IOSystem ioSystem)
         {
-            if(ioSystem == null || ioSystem.IsDisposed)
+            if (ioSystem == null || ioSystem.IsDisposed)
                 ioSystem = null;
 
             m_ioSystem = ioSystem;
@@ -819,10 +819,10 @@ namespace Assimp
         /// <returns>Export formats supported</returns>
         public ExportFormatDescription[] GetSupportedExportFormats()
         {
-            if(m_exportFormats == null)
+            if (m_exportFormats == null)
                 m_exportFormats = AssimpLibrary.Instance.GetExportFormatDescriptions();
 
-            return (ExportFormatDescription[]) m_exportFormats.Clone();
+            return (ExportFormatDescription[])m_exportFormats.Clone();
         }
 
         /// <summary>
@@ -831,10 +831,10 @@ namespace Assimp
         /// <returns>Import formats supported</returns>
         public String[] GetSupportedImportFormats()
         {
-            if(m_importFormats == null)
+            if (m_importFormats == null)
                 m_importFormats = AssimpLibrary.Instance.GetExtensionList();
 
-            return (String[]) m_importFormats.Clone();
+            return (String[])m_importFormats.Clone();
         }
 
         /// <summary>
@@ -854,17 +854,17 @@ namespace Assimp
         /// <returns>True if the format is supported, false otherwise</returns>
         public bool IsExportFormatSupported(String format)
         {
-            if(String.IsNullOrEmpty(format))
+            if (String.IsNullOrEmpty(format))
                 return false;
 
             ExportFormatDescription[] exportFormats = GetSupportedExportFormats();
 
-            if(format.StartsWith(".") && format.Length >= 2)
+            if (format.StartsWith(".") && format.Length >= 2)
                 format = format.Substring(1);
 
-            foreach(ExportFormatDescription desc in exportFormats)
+            foreach (ExportFormatDescription desc in exportFormats)
             {
-                if(String.Equals(desc.FileExtension, format))
+                if (String.Equals(desc.FileExtension, format))
                     return true;
             }
 
@@ -881,7 +881,7 @@ namespace Assimp
         /// <param name="config">Config to set</param>
         public void SetConfig(PropertyConfig config)
         {
-            if(config == null)
+            if (config == null)
             {
                 return;
             }
@@ -895,12 +895,12 @@ namespace Assimp
         /// <param name="configName">Name of the config property</param>
         public void RemoveConfig(String configName)
         {
-            if(String.IsNullOrEmpty(configName))
+            if (String.IsNullOrEmpty(configName))
             {
                 return;
             }
             PropertyConfig oldConfig;
-            if(m_configs.TryGetValue(configName, out oldConfig))
+            if (m_configs.TryGetValue(configName, out oldConfig))
             {
                 m_configs.Remove(configName);
             }
@@ -921,7 +921,7 @@ namespace Assimp
         /// <returns>True if the config is present, false otherwise</returns>
         public bool ContainsConfig(String configName)
         {
-            if(String.IsNullOrEmpty(configName))
+            if (String.IsNullOrEmpty(configName))
             {
                 return false;
             }
@@ -947,11 +947,11 @@ namespace Assimp
         /// <param name="disposing">True to release both managed and unmanaged resources; False to release only unmanaged resources.</param>
         private void Dispose(bool disposing)
         {
-            if(!m_isDisposed)
+            if (!m_isDisposed)
             {
-                if(disposing)
+                if (disposing)
                 {
-                    if(UsingCustomIOSystem)
+                    if (UsingCustomIOSystem)
                         m_ioSystem.Dispose();
                 }
 
@@ -965,7 +965,7 @@ namespace Assimp
 
         private void CheckDisposed()
         {
-            if(m_isDisposed)
+            if (m_isDisposed)
                 throw new ObjectDisposedException("Assimp Context has been disposed.");
         }
 
@@ -973,12 +973,12 @@ namespace Assimp
         private void BuildMatrix()
         {
 
-            if(m_buildMatrix)
+            if (m_buildMatrix)
             {
                 Matrix4x4 scale = Matrix4x4.FromScaling(new Vector3D(m_scale, m_scale, m_scale));
-                Matrix4x4 xRot = Matrix4x4.FromRotationX(m_xAxisRotation * (float) (Math.PI / 180.0d));
-                Matrix4x4 yRot = Matrix4x4.FromRotationY(m_yAxisRotation * (float) (Math.PI / 180.0d));
-                Matrix4x4 zRot = Matrix4x4.FromRotationZ(m_zAxisRotation * (float) (Math.PI / 180.0d));
+                Matrix4x4 xRot = Matrix4x4.FromRotationX(m_xAxisRotation * (float)(Math.PI / 180.0d));
+                Matrix4x4 yRot = Matrix4x4.FromRotationY(m_yAxisRotation * (float)(Math.PI / 180.0d));
+                Matrix4x4 zRot = Matrix4x4.FromRotationZ(m_zAxisRotation * (float)(Math.PI / 180.0d));
                 m_scaleRot = scale * ((xRot * yRot) * zRot);
             }
 
@@ -992,10 +992,10 @@ namespace Assimp
 
             try
             {
-                if(!m_scaleRot.IsIdentity)
+                if (!m_scaleRot.IsIdentity)
                 {
                     AiScene aiScene = MemoryHelper.MarshalStructure<AiScene>(scene);
-                    if(aiScene.RootNode == IntPtr.Zero)
+                    if (aiScene.RootNode == IntPtr.Zero)
                         return false;
 
                     IntPtr matrixPtr = MemoryHelper.AddIntPtr(aiScene.RootNode, MemoryHelper.SizeOf<AiString>()); //Skip over Node Name
@@ -1009,7 +1009,7 @@ namespace Assimp
                     return true;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -1022,7 +1022,7 @@ namespace Assimp
         {
             m_propStore = AssimpLibrary.Instance.CreatePropertyStore();
 
-            foreach(KeyValuePair<String, PropertyConfig> config in m_configs)
+            foreach (KeyValuePair<String, PropertyConfig> config in m_configs)
             {
                 config.Value.ApplyValue(m_propStore);
             }
@@ -1031,7 +1031,7 @@ namespace Assimp
         //Destroys all property stores
         private void ReleaseConfigs()
         {
-            if(m_propStore != IntPtr.Zero)
+            if (m_propStore != IntPtr.Zero)
                 AssimpLibrary.Instance.ReleasePropertyStore(m_propStore);
         }
 
@@ -1047,7 +1047,7 @@ namespace Assimp
             ReleaseConfigs();
 
             //Noticed that sometimes Assimp doesn't call Close() callbacks always, so ensure we clean up those up here
-            if(UsingCustomIOSystem)
+            if (UsingCustomIOSystem)
             {
                 m_ioSystem.CloseAllFiles();
             }
@@ -1059,7 +1059,7 @@ namespace Assimp
             if (m_exportFormats == null)
                 m_exportFormats = AssimpLibrary.Instance.GetExportFormatDescriptions();
 
-            foreach(ExportFormatDescription descr in m_exportFormats)
+            foreach (ExportFormatDescription descr in m_exportFormats)
             {
                 if (descr.FormatId.Equals(exportFormatId, StringComparison.InvariantCulture))
                     return true;
@@ -1068,7 +1068,7 @@ namespace Assimp
             //Assimp doesn't seem to emit a logstream message, so make sure we log that the format ID is not valid
             IEnumerable<LogStream> loggers = LogStream.GetAttachedLogStreams();
 
-            foreach(LogStream logger in loggers)
+            foreach (LogStream logger in loggers)
             {
                 logger.Log(String.Format("Info,  Invalid export format: {0}", exportFormatId));
             }
