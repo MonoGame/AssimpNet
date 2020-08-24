@@ -20,17 +20,17 @@
 * THE SOFTWARE.
 */
 
-using NUnit.Framework;
+using Xunit;
 using OpenToolkit.Mathematics;
+using FluentAssertions;
 
 namespace Assimp.Test
 {
     using Quaternion = OpenToolkit.Mathematics.Quaternion;
 
-    [TestFixture]
     public class QuaternionTestFixture
     {
-        [Test]
+        [Fact]
         public void TestEquals()
         {
             Quaternion q1 = new Quaternion(.25f, .75f, .5f, 1.0f);
@@ -38,23 +38,23 @@ namespace Assimp.Test
             Quaternion q3 = new Quaternion(.55f, .17f, 1.0f, .15f);
 
             //Test IEquatable Equals
-            Assert.IsTrue(q1.Equals(q2), "Test IEquatable equals");
-            Assert.IsFalse(q1.Equals(q3), "Test IEquatable equals");
+            q1.Equals(q2).Should().BeTrue();
+            q1.Equals(q3).Should().BeFalse();
 
             //Test object equals override
-            Assert.IsTrue(q1.Equals((object) q2), "Tests object equals");
-            Assert.IsFalse(q1.Equals((object) q3), "Tests object equals");
+            q1.Equals((object)q2).Should().BeTrue();
+            q1.Equals((object)q3).Should().BeFalse();
 
             //Test op equals
-            Assert.IsTrue(q1 == q2, "Testing OpEquals");
-            Assert.IsFalse(q1 == q3, "Testing OpEquals");
+            (q1 == q2).Should().BeTrue();
+            (q1 == q2).Should().BeFalse();
 
             //Test op not equals
-            Assert.IsTrue(q1 != q3, "Testing OpNotEquals");
-            Assert.IsFalse(q1 != q2, "Testing OpNotEquals");
+            (q1 != q3).Should().BeTrue();
+            (q1 != q2).Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestConjugate()
         {
             Quaternion tkQ = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
@@ -66,7 +66,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkQ.X, tkQ.Y, tkQ.Z, tkQ.W, q, "Testing conjugate");
         }
 
-        [Test]
+        [Fact]
         public void TestGetMatrix()
         {
             Quaternion tkQ = Quaternion.FromAxisAngle(new Vector3(.25f, .5f, 0.0f), MathHelper.PiOver2);
@@ -78,7 +78,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing GetMatrix");
         }
 
-        [Test]
+        [Fact]
         public void TestNormalize()
         {
             Quaternion tkQ = Quaternion.FromAxisAngle(new Vector3(.25f, .5f, 0.0f), MathHelper.PiOver2);
@@ -90,7 +90,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkQ.X, tkQ.Y, tkQ.Z, tkQ.W, q, "Testing normalize");
         }
 
-        [Test]
+        [Fact]
         public void TestRotate()
         {
             Vector3 tkV1 = new Vector3(0, 5, 10);
@@ -105,7 +105,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkV2.X, tkV2.Y, tkV2.Z, v2, "Testing rotate");
         }
 
-        [Test]
+        [Fact]
         public void TestSlerp()
         {
             Quaternion tkQ1 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
@@ -121,7 +121,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkQ.X, tkQ.Y, tkQ.Z, tkQ.W, q, "Testing slerp");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiply()
         {
             Quaternion tkQ1 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);

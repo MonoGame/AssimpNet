@@ -26,23 +26,23 @@ using System.Threading;
 using System.Collections.Generic;
 using Assimp.Configs;
 using Assimp.Unmanaged;
-using NUnit.Framework;
+using Xunit;
+using FluentAssertions;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class MiscDefectTests
     {
 
-        [TestCase]
+        [Fact]
         public void TestBaseMaterialProperty()
         {
             Material mat = new Material();
             MaterialProperty prop = new MaterialProperty(null, false);
 
             bool success = mat.AddProperty(prop);
-            Assert.IsFalse(success);
-            Assert.IsTrue(String.IsNullOrEmpty(prop.FullyQualifiedName));
+            success.Should().BeTrue();
+            prop.FullyQualifiedName.Should().BeNullOrEmpty();
         }
     }
 }

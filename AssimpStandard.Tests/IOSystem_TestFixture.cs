@@ -20,16 +20,16 @@
 * THE SOFTWARE.
 */
 
+using FluentAssertions;
 using System;
 using System.IO;
-using NUnit.Framework;
+using Xunit;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class IOSystem_TestFixture
     {
-        [Test]
+        [Fact]
         public void TestMultiSearchDirectoryLoad()
         {
             String fileName = "fenris.lws";
@@ -41,10 +41,10 @@ namespace Assimp.Test
 
             //None, using the "target high quality flags caused a crash with this model.
             Scene scene = importer.ImportFile(fileName, PostProcessSteps.None);
-            Assert.IsNotNull(scene);
+            scene.Should().NotBeNull();
         }
 
-        [Test]
+        [Fact]
         public void TestMultiSearchDirectoryConvert()
         {
             String fileName = Path.Combine(TestHelper.RootPath, "TestFiles/fenris/scenes/fenris.lws");
@@ -59,7 +59,7 @@ namespace Assimp.Test
             importer.ConvertFromFileToFile(fileName, PostProcessSteps.None, outputPath, "obj", PostProcessSteps.None);
         }
 
-        [Test]
+        [Fact]
         public void TestIOSystemError()
         {
             String fileName = "duckduck.dae"; //GOOSE!

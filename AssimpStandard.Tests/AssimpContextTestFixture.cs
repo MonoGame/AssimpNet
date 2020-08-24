@@ -26,14 +26,18 @@ using System.Threading;
 using System.Collections.Generic;
 using Assimp.Configs;
 using Assimp.Unmanaged;
-using NUnit.Framework;
+using Xunit;
+using FluentAssertions;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class AssimpContextTestFixture
     {
-        [OneTimeSetUp]
+        public AssimpContextTestFixture()
+        {
+            Setup();
+        }
+
         public void Setup()
         {
             String outputPath = Path.Combine(TestHelper.RootPath, "TestFiles/output");
@@ -50,7 +54,7 @@ namespace Assimp.Test
             }
         }
 
-        [Test]
+        [Fact]
         public void TestExportBadFormatId()
         {
             AssimpContext importer = new AssimpContext();
@@ -67,14 +71,14 @@ namespace Assimp.Test
 
             bool success = importer.ExportFile(collada, Path.Combine(TestHelper.RootPath, "TestFiles/output/exportedCollada.dae"), "dae");
 
-            Assert.IsFalse(success);
+            success.Should().BeFalse();
 
             success = importer.ExportFile(collada, Path.Combine(TestHelper.RootPath, "TestFiles/output/exportedCollada.dae"), "collada");
 
-            Assert.IsTrue(success);
+            success.Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestExportToBlob()
         {
             String colladaPath = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -83,12 +87,12 @@ namespace Assimp.Test
             Scene ducky = context.ImportFile(colladaPath);
             ExportDataBlob blob = context.ExportToBlob(ducky, "obj");
 
-            Assert.IsTrue(blob.HasData);
-            Assert.IsTrue(blob.NextBlob != null);
-            Assert.IsTrue(blob.NextBlob.Name.Equals("mtl"));
+            blob.HasData.Should().BeTrue();
+            blob.NextBlob.Should().NotBeNull();
+            blob.NextBlob.Name.Equals("mtl").Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestImportExportFile()
         {
             String colladaPath = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -99,7 +103,7 @@ namespace Assimp.Test
             context.ExportFile(ducky, plyPath, "ply");
         }
 
-        [Test]
+        [Fact]
         public void TestImportExportImportFile()
         {
             String colladaPath = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -110,10 +114,10 @@ namespace Assimp.Test
             context.ExportFile(ducky, plyPath, "collada");
 
             Scene ducky2 = context.ImportFile(plyPath);
-            Assert.IsNotNull(ducky2);
+            ducky2.Should().NotBeNull();
         }
 
-        [Test]
+        [Fact]
         public void TestExportToFile()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/ExportedTriangle.obj");
@@ -139,22 +143,22 @@ namespace Assimp.Test
             //Export the scene then read it in and compare!
 
             AssimpContext context = new AssimpContext();
-            Assert.IsTrue(context.ExportFile(scene, path, "obj"));
+            context.ExportFile(scene, path, "obj").Should().BeTrue();
 
             Scene importedScene = context.ImportFile(path);
-            Assert.IsTrue(importedScene.MeshCount == scene.MeshCount);
-            Assert.IsTrue(importedScene.MaterialCount == 2); //Always has the default material, should also have our material
+            importedScene.MeshCount.Should().Be(scene.MeshCount);
+            importedScene.MaterialCount.Should().Be(2); //Always has the default material, should also have our material
 
             //Compare the meshes
             Mesh importedTriangle = importedScene.Meshes[0];
 
-            Assert.IsTrue(importedTriangle.VertexCount == triangle.VertexCount);
+            importedTriangle.VertexCount.Should().Be(triangle.VertexCount);
             for(int i = 0; i < importedTriangle.VertexCount; i++)
             {
-                Assert.IsTrue(importedTriangle.Vertices[i].Equals(triangle.Vertices[i]));
+                importedTriangle.Vertices[i].Should().Be(triangle.Vertices[i]);
             }
 
-            Assert.IsTrue(importedTriangle.FaceCount == triangle.FaceCount);
+            importedTriangle.FaceCount.Should().Be(triangle.FaceCount);
             for(int i = 0; i < importedTriangle.FaceCount; i++)
             {
                 Face importedFace = importedTriangle.Faces[i];
@@ -162,12 +166,12 @@ namespace Assimp.Test
 
                 for(int j = 0; j < importedFace.IndexCount; j++)
                 {
-                    Assert.IsTrue(importedFace.Indices[j] == face.Indices[j]);
+                    importedFace.Indices[j].Should().Be(face.Indices[j]);
                 }
             }
         }
 
-        [Test]
+        [Fact]
         public void TestFreeLogStreams()
         {
             ConsoleLogStream console1 = new ConsoleLogStream();
@@ -182,13 +186,13 @@ namespace Assimp.Test
 
             IEnumerable<LogStream> logs = LogStream.GetAttachedLogStreams();
 
-            Assert.IsEmpty(logs);
-            Assert.IsFalse(console1.IsAttached);
-            Assert.IsFalse(console2.IsAttached);
-            Assert.IsFalse(console3.IsAttached);
+            logs.Should().BeEmpty();
+            console1.IsAttached.Should().BeFalse();
+            console2.IsAttached.Should().BeFalse();
+            console3.IsAttached.Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestImportFromFile()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/sphere.obj");
@@ -201,27 +205,27 @@ namespace Assimp.Test
             importer.YAxisRotation = 50.0f;
             LogStream.IsVerboseLoggingEnabled = true;
 
-            Assert.IsTrue(importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName));
+            importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName).Should().BeTrue();
 
             importer.RemoveConfigs();
 
-            Assert.IsFalse(importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName));
+            importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName).Should().BeFalse();
 
             importer.SetConfig(new NormalSmoothingAngleConfig(65.0f));
             importer.SetConfig(new NormalSmoothingAngleConfig(22.5f));
             importer.RemoveConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName);
 
-            Assert.IsFalse(importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName));
+            importer.ContainsConfig(NormalSmoothingAngleConfig.NormalSmoothingAngleConfigName).Should().BeFalse();
 
             importer.SetConfig(new NormalSmoothingAngleConfig(65.0f));
 
             Scene scene = importer.ImportFile(path, PostProcessPreset.TargetRealTimeMaximumQuality);
 
-            Assert.IsNotNull(scene);
-            Assert.IsTrue((scene.SceneFlags & SceneFlags.Incomplete) != SceneFlags.Incomplete);
+            scene.Should().NotBeNull();
+            ((scene.SceneFlags & SceneFlags.Incomplete) != SceneFlags.Incomplete).Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestImportFromStream()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -242,11 +246,12 @@ namespace Assimp.Test
 
             fs.Close();
 
-            Assert.IsNotNull(scene);
-            Assert.IsTrue((scene.SceneFlags & SceneFlags.Incomplete) != SceneFlags.Incomplete);
+            scene.Should().NotBeNull();
+            var sf = (scene.SceneFlags & SceneFlags.Incomplete);
+            sf.Should().NotBe(SceneFlags.Incomplete);
         }
 
-        [Test]
+        [Fact]
         public void TestImportFromStreamNoFormatHint()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -267,11 +272,12 @@ namespace Assimp.Test
 
             fs.Close();
 
-            Assert.IsNotNull(scene);
-            Assert.IsTrue((scene.SceneFlags & SceneFlags.Incomplete) != SceneFlags.Incomplete);
+            scene.Should().NotBeNull();
+            var sf = (scene.SceneFlags & SceneFlags.Incomplete);
+            sf.Should().NotBe(SceneFlags.Incomplete);
         }
 
-        [Test]
+        [Fact]
         public void TestSupportedFormats()
         {
             AssimpContext importer = new AssimpContext();
@@ -279,16 +285,16 @@ namespace Assimp.Test
 
             String[] importFormats = importer.GetSupportedImportFormats();
 
-            Assert.IsNotNull(exportDescs);
-            Assert.IsNotNull(importFormats);
-            Assert.IsTrue(exportDescs.Length >= 1);
-            Assert.IsTrue(importFormats.Length >= 1);
+            exportDescs.Should().NotBeNull();
+            importFormats.Should().NotBeNull();
+            exportDescs.Length.Should().BeGreaterOrEqualTo(1);
+            importFormats.Length.Should().BeGreaterOrEqualTo(1);
 
-            Assert.IsTrue(importer.IsExportFormatSupported(exportDescs[0].FileExtension));
-            Assert.IsTrue(importer.IsImportFormatSupported(importFormats[0]));
+            importer.IsExportFormatSupported(exportDescs[0].FileExtension).Should().BeTrue();
+            importer.IsImportFormatSupported(importFormats[0]).Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestConvertFromFile()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/Bob.md5mesh");
@@ -300,7 +306,7 @@ namespace Assimp.Test
             ExportDataBlob blob = importer.ConvertFromFileToBlob(path, "collada");
         }
 
-        [Test]
+        [Fact]
         public void TestConvertFromStreamNoFormatHint()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -315,12 +321,12 @@ namespace Assimp.Test
 
             AssimpContext importer = new AssimpContext();
             bool success = importer.ConvertFromStreamToFile(fs, ".dae", outputPath, "obj");
-            Assert.IsTrue(success);
+            success.Should().BeTrue();
 
-            Assert.IsTrue(File.Exists(outputPath));
+            File.Exists(outputPath).Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestConvertFromStream()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -333,12 +339,12 @@ namespace Assimp.Test
 
             AssimpContext importer = new AssimpContext();
             bool success = importer.ConvertFromStreamToFile(fs, ".dae", outputPath, "obj");
-            Assert.IsTrue(success);
+            success.Should().BeTrue();
 
             fs.Position = 0;
 
             ExportDataBlob blob = importer.ConvertFromStreamToBlob(fs, ".dae", "collada");
-            Assert.IsNotNull(blob);
+            blob.Should().NotBeNull();
 
             fs.Close();
 
@@ -355,10 +361,10 @@ namespace Assimp.Test
 
             LogStream.DetachAllLogstreams();
 
-            Assert.IsTrue(success);
+            success.Should().BeTrue();
         }
 
-        [Test]
+        [Fact]
         public void TestLoadFreeLibrary()
         {
             if(AssimpLibrary.Instance.IsLibraryLoaded)
@@ -374,7 +380,7 @@ namespace Assimp.Test
             AssimpLibrary.Instance.FreeLibrary();
         }
 
-        [Test]
+        [Fact]
         public void TestMultipleImportersMultipleThreads()
         {
             LogStream.IsVerboseLoggingEnabled = true;

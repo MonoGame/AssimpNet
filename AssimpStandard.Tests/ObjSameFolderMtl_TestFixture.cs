@@ -20,16 +20,16 @@
 * THE SOFTWARE.
 */
 
+using FluentAssertions;
 using System;
 using System.IO;
-using NUnit.Framework;
+using Xunit;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class ObjSameFolderMtl_TestFixture
     {
-        [Test]
+        [Fact]
         public void TestObjLoad()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/sphere.obj");
@@ -37,9 +37,9 @@ namespace Assimp.Test
             AssimpContext importer = new AssimpContext();
             Scene scene = importer.ImportFile(path);
 
-            Assert.IsNotNull(scene);
-            Assert.IsNotNull(scene.RootNode);
-            Assert.IsTrue(scene.RootNode.Name.Equals("sphere.obj"));
+            scene.Should().NotBeNull();
+            scene.RootNode.Should().NotBeNull();
+            scene.RootNode.Name.Should().Be("sphere.obj");
         }
     }
 }

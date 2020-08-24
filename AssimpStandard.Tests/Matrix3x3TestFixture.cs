@@ -21,15 +21,15 @@
 */
 
 using System;
-using NUnit.Framework;
+using Xunit;
 using OpenToolkit.Mathematics;
+using FluentAssertions;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class Matrix3x3TestFixture
     {
-        [Test]
+        [Fact]
         public void TestIndexer()
         {
             float[] values = new float[] { 1.0f, 2.0f, 3.0f, 0.0f, -5.0f, .5f, .3f, .35f, .025f };
@@ -47,7 +47,7 @@ namespace Assimp.Test
             }
         }
 
-        [Test]
+        [Fact]
         public void TestEquals()
         {
             Matrix3x3 m1 = new Matrix3x3(1.0f, 2.0f, 3.0f, 0.0f, -5.0f, .5f, .3f, .35f, .025f);
@@ -55,23 +55,23 @@ namespace Assimp.Test
             Matrix3x3 m3 = new Matrix3x3(0.0f, 2.0f, 25.0f, 1.0f, 5.0f, 5.5f, 1.25f, 8.5f, 2.25f);
 
             //Test IEquatable Equals
-            Assert.IsTrue(m1.Equals(m2), "Test IEquatable equals");
-            Assert.IsFalse(m1.Equals(m3), "Test IEquatable equals");
+            m1.Equals(m2).Should().BeTrue();
+            m1.Equals(m3).Should().BeFalse();
 
             //Test object equals override
-            Assert.IsTrue(m1.Equals((object) m2), "Tests object equals");
-            Assert.IsFalse(m1.Equals((object) m3), "Tests object equals");
+            m1.Equals((object)m2).Should().BeTrue();
+            m1.Equals((object)m3).Should().BeFalse();
 
             //Test op equals
-            Assert.IsTrue(m1 == m2, "Testing OpEquals");
-            Assert.IsFalse(m1 == m3, "Testing OpEquals");
+            (m1 == m2).Should().BeTrue();
+            (m1 == m2).Should().BeFalse();
 
             //Test op not equals
-            Assert.IsTrue(m1 != m3, "Testing OpNotEquals");
-            Assert.IsFalse(m1 != m2, "Testing OpNotEquals");
+            (m1 != m3).Should().BeTrue();
+            (m1 != m2).Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestDeterminant()
         {
             float x = MathHelper.Pi;
@@ -85,7 +85,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkDet, det, "Testing determinant");
         }
 
-        [Test]
+        [Fact]
         public void TestFromAngleAxis()
         {
             Matrix4 tkM = Matrix4.CreateFromAxisAngle(Vector3.UnitY, MathHelper.Pi);
@@ -94,7 +94,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing from angle axis");
         }
 
-        [Test]
+        [Fact]
         public void TestFromEulerAnglesXYZ()
         {
             float x = MathHelper.Pi;
@@ -106,10 +106,10 @@ namespace Assimp.Test
             Matrix3x3 m2 = Matrix3x3.FromEulerAnglesXYZ(new Vector3D(x, y, z));
 
             TestHelper.AssertEquals(tkM, m, "Testing create from euler angles");
-            Assert.IsTrue(m == m2, "Testing if create from euler angle as a vector is the same as floats.");
+            m.Should().Be(m2);
         }
 
-        [Test]
+        [Fact]
         public void TestFromRotationX()
         {
             float x = MathHelper.Pi;
@@ -120,7 +120,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing from rotation x");
         }
 
-        [Test]
+        [Fact]
         public void TestFromRotationY()
         {
             float y = MathHelper.Pi;
@@ -131,7 +131,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing from rotation y");
         }
 
-        [Test]
+        [Fact]
         public void TestFromRotationZ()
         {
             float z = MathHelper.Pi;
@@ -142,7 +142,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing from rotation z");
         }
 
-        [Test]
+        [Fact]
         public void TestFromScaling()
         {
             float x = 1.0f;
@@ -155,7 +155,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing from scaling");
         }
 
-        [Test]
+        [Fact]
         public void TestFromToMatrix()
         {
             Vector3D from = new Vector3D(1, 0, 0);
@@ -167,7 +167,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing From-To rotation matrix");
         }
 
-        [Test]
+        [Fact]
         public void TestToFromQuaternion()
         {
             Vector3D axis = new Vector3D(.25f, .5f, 0.0f);
@@ -182,7 +182,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(q.X, q.Y, q.Z, q.W, q2, "Testing Quaternion->Matrix->Quaternion");
         }
 
-        [Test]
+        [Fact]
         public void TestInverse()
         {
             float x = MathHelper.PiOver6;
@@ -197,17 +197,17 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing inverse");
         }
 
-        [Test]
+        [Fact]
         public void TestIdentity()
         {
             Matrix4 tkM = Matrix4.Identity;
             Matrix3x3 m = Matrix3x3.Identity;
 
-            Assert.IsTrue(m.IsIdentity, "Testing IsIdentity");
+            m.IsIdentity.Should().BeTrue();
             TestHelper.AssertEquals(tkM, m, "Testing is identity to baseline");
         }
 
-        [Test]
+        [Fact]
         public void TestTranspose()
         {
             float x = MathHelper.Pi;
@@ -221,7 +221,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(tkM, m, "Testing transpose");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiply()
         {
             float x = MathHelper.Pi;

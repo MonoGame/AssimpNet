@@ -20,16 +20,16 @@
 * THE SOFTWARE.
 */
 
+using FluentAssertions;
 using System;
 using System.IO;
-using NUnit.Framework;
+using Xunit;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class ExportDataBlobTestFixture
     {
-        [Test]
+        [Fact]
         public void TestToStream()
         {
             String path = Path.Combine(TestHelper.RootPath, "TestFiles/duck.dae");
@@ -37,24 +37,23 @@ namespace Assimp.Test
             AssimpContext importer = new AssimpContext();
             ExportDataBlob blob = importer.ConvertFromFileToBlob(path, "obj");
 
-            Assert.IsNotNull(blob);
+            blob.Should().NotBeNull();
 
             MemoryStream stream = new MemoryStream();
             blob.ToStream(stream);
 
-            Assert.IsTrue(stream.Length != 0);
+            stream.Length.Should().NotBe(0);
             stream.Position = 0;
 
             ExportDataBlob blob2 = ExportDataBlob.FromStream(stream);
 
-            Assert.IsNotNull(blob2);
-            Assert.IsTrue(blob.Data.Length == blob.Data.Length);
+            blob2.Should().NotBeNull();
 
             if(blob.NextBlob != null)
             {
-                Assert.IsTrue(blob2.NextBlob != null);
-                Assert.IsTrue(blob2.NextBlob.Name.Equals(blob.NextBlob.Name));
-                Assert.IsTrue(blob2.NextBlob.Data.Length == blob.NextBlob.Data.Length);
+                blob2.NextBlob.Should().NotBeNull();
+                blob2.NextBlob.Name.Should().Be(blob.NextBlob.Name);
+                blob2.NextBlob.Data.Length.Should().Be(blob.NextBlob.Data.Length);
             }
         }
     }

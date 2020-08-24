@@ -1,14 +1,9 @@
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.csprojAssemblyReference.cache
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.AssemblyInfoInputs.cache
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.AssemblyInfo.cs
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.csproj.CoreCompileInputs.cache
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Assimp32.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Assimp64.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\AssimpLicense.txt
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.pdb
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\nunit.engine.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\nunit.engine.api.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\TestFiles\duckCM.bmp
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\TestFiles\Bob.md5anim
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\TestFiles\Bob.md5mesh
@@ -23,7 +18,6 @@ C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\AssimpStandard.Tests.runtimeconfig.dev.json
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\AssimpStandard.Tests.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -34,8 +28,6 @@ C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\nunit.framework.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -122,3 +114,12 @@ C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\glfw3-x86.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.pdb
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\xunit.assert.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\obj\Debug\netcoreapp3.1\AssimpStandard.Tests.csproj.CoreCompileInputs.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\FluentAssertions.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

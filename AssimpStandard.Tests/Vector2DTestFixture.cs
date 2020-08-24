@@ -20,15 +20,15 @@
 * THE SOFTWARE.
 */
 
+using FluentAssertions;
 using System;
-using NUnit.Framework;
+using Xunit;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class Vector2DTestFixture
     {
-        [Test]
+        [Fact]
         public void TestIndexer()
         {
             float x = 1, y = 2;
@@ -39,7 +39,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(y, v[1], "Test Indexer, Y");
         }
 
-        [Test]
+        [Fact]
         public void TestSet()
         {
             float x = 10.5f, y = 109.21f;
@@ -49,7 +49,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Test v.Set()");
         }
 
-        [Test]
+        [Fact]
         public void TestEquals()
         {
             float x = 1, y = 2;
@@ -60,41 +60,41 @@ namespace Assimp.Test
             Vector2D v3 = new Vector2D(x2, y2);
 
             //Test IEquatable Equals
-            Assert.IsTrue(v1.Equals(v2), "Test IEquatable equals");
-            Assert.IsFalse(v1.Equals(v3), "Test IEquatable equals");
+            v1.Equals(v2).Should().BeTrue();
+            v1.Equals(v3).Should().BeFalse();
 
             //Test object equals override
-            Assert.IsTrue(v1.Equals((object) v2), "Tests object equals");
-            Assert.IsFalse(v1.Equals((object) v3), "Tests object equals");
+            v1.Equals((object)v2).Should().BeTrue();
+            v1.Equals((object)v3).Should().BeFalse();
 
             //Test op equals
-            Assert.IsTrue(v1 == v2, "Testing OpEquals");
-            Assert.IsFalse(v1 == v3, "Testing OpEquals");
+            (v1 == v2).Should().BeTrue();
+            (v1 == v2).Should().BeFalse();
 
             //Test op not equals
-            Assert.IsTrue(v1 != v3, "Testing OpNotEquals");
-            Assert.IsFalse(v1 != v2, "Testing OpNotEquals");
+            (v1 != v3).Should().BeTrue();
+            (v1 != v2).Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestLength()
         {
             float x = -62, y = 5;
 
             Vector2D v = new Vector2D(x, y);
-            Assert.AreEqual((float) Math.Sqrt(x * x + y * y), v.Length(), "Testing v.Length()");
+            Math.Sqrt(x * x + y * y).Should().Be(v.Length());
         }
 
-        [Test]
+        [Fact]
         public void TestLengthSquared()
         {
             float x = -5, y = 25f;
 
             Vector2D v = new Vector2D(x, y);
-            Assert.AreEqual((float) (x * x + y * y), v.LengthSquared(), "Testing v.LengthSquared()");
+            Math.Sqrt(x * x + y * y).Should().Be(v.Length());
         }
 
-        [Test]
+        [Fact]
         public void TestNegate()
         {
             float x = 2, y = 5;
@@ -104,7 +104,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(-x, -y, v, "Testing v.Negate()");
         }
 
-        [Test]
+        [Fact]
         public void TestNormalize()
         {
             float x = 5, y = 12;
@@ -117,7 +117,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing v.Normalize()");
         }
 
-        [Test]
+        [Fact]
         public void TestOpAdd()
         {
             float x1 = 2, y1 = 5;
@@ -133,7 +133,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing v1 + v2");
         }
 
-        [Test]
+        [Fact]
         public void TestOpSubtract()
         {
             float x1 = 2, y1 = 5;
@@ -149,7 +149,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing v1 - v2");
         }
 
-        [Test]
+        [Fact]
         public void TestOpNegate()
         {
             float x = 22, y = 75;
@@ -159,7 +159,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(-x, -y, v, "Testting -v)");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiply()
         {
             float x1 = 2, y1 = 5;
@@ -175,7 +175,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing v1 * v2");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiplyByScalar()
         {
             float x1 = 2, y1 = 5;
@@ -195,7 +195,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing scale * v");
         }
 
-        [Test]
+        [Fact]
         public void TestOpDivide()
         {
             float x1 = 105f, y1 = 4.5f;
@@ -212,7 +212,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(x, y, v, "Testing v1 / v2");
         }
 
-        [Test]
+        [Fact]
         public void TestOpDivideByFactor()
         {
             float x1 = 55f, y1 = 2f;

@@ -23,8 +23,9 @@
 using System;
 using System.IO;
 using System.Reflection;
-using NUnit.Framework;
+using Xunit;
 using OpenToolkit.Mathematics;
+using FluentAssertions;
 
 namespace Assimp.Test
 {
@@ -62,12 +63,13 @@ namespace Assimp.Test
 
         public static void AssertEquals(float expected, float actual)
         {
-            Assert.IsTrue(Math.Abs(expected - actual) <= Tolerance);
+            Math.Abs(expected - actual).Should().BeLessOrEqualTo(Tolerance);
         }
 
         public static void AssertEquals(float expected, float actual, String msg)
         {
-            Assert.IsTrue(Math.Abs(expected - actual) <= Tolerance, msg);
+            Math.Abs(expected - actual).Should().BeLessOrEqualTo(Tolerance);
+            Console.WriteLine(msg);
         }
 
         public static void AssertEquals(float x, float y, Vector2D v)

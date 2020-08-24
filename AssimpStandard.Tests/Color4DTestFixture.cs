@@ -20,14 +20,14 @@
 * THE SOFTWARE.
 */
 
-using NUnit.Framework;
+using FluentAssertions;
+using Xunit;
 
 namespace Assimp.Test
 {
-    [TestFixture]
     public class Color4DTestFixture
     {
-        [Test]
+        [Fact]
         public void TestIndexer()
         {
             float r = .25f, g = .5f, b = .05f, a = 1.0f;
@@ -42,7 +42,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(a, c[3], "Test Indexer, A");
         }
 
-        [Test]
+        [Fact]
         public void TestEquals()
         {
             float r1 = .25f, g1 = .1f, b1 = .75f, a1 = 1.0f;
@@ -53,35 +53,35 @@ namespace Assimp.Test
             Color4D c3 = new Color4D(r2, g2, b2, a2);
 
             //Test IEquatable Equals
-            Assert.IsTrue(c1.Equals(c2), "Test IEquatable equals");
-            Assert.IsFalse(c1.Equals(c3), "Test IEquatable equals");
+            c1.Equals(c2).Should().BeTrue();
+            c1.Equals(c3).Should().BeFalse();
 
             //Test object equals override
-            Assert.IsTrue(c1.Equals((object) c2), "Tests object equals");
-            Assert.IsFalse(c1.Equals((object) c3), "Tests object equals");
+            c1.Equals((object)c2).Should().BeTrue();
+            c1.Equals((object)c3).Should().BeFalse();
 
             //Test op equals
-            Assert.IsTrue(c1 == c2, "Testing OpEquals");
-            Assert.IsFalse(c1 == c3, "Testing OpEquals");
+            (c1 == c2).Should().BeTrue();
+            (c1 == c2).Should().BeFalse();
 
             //Test op not equals
-            Assert.IsTrue(c1 != c3, "Testing OpNotEquals");
-            Assert.IsFalse(c1 != c2, "Testing OpNotEquals");
+            (c1 != c3).Should().BeTrue();
+            (c1 != c2).Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestIsBlack()
         {
             Color4D c1 = new Color4D(0, 0, 0, 1.0f);
             Color4D c2 = new Color4D(.25f, 1.0f, .5f, 1.0f) * .002f;
             Color4D c3 = new Color4D(.25f, .65f, 1.0f);
 
-            Assert.IsTrue(c1.IsBlack(), "Testing isBlack");
-            Assert.IsTrue(c2.IsBlack(), "Testing isBlack");
-            Assert.IsFalse(c3.IsBlack(), "Testing !isBlack");
+            c1.IsBlack().Should().BeTrue();
+            c2.IsBlack().Should().BeTrue();
+            c3.IsBlack().Should().BeFalse();
         }
 
-        [Test]
+        [Fact]
         public void TestOpAdd()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -98,7 +98,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpAdd");
         }
 
-        [Test]
+        [Fact]
         public void TestOpAddValue()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -119,7 +119,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpAddValue");
         }
 
-        [Test]
+        [Fact]
         public void TestOpSubtract()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -136,7 +136,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpSubtract");
         }
 
-        [Test]
+        [Fact]
         public void TestOpSubtractByValue()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -162,7 +162,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpSubtractValue");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiply()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -179,7 +179,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpMultiply");
         }
 
-        [Test]
+        [Fact]
         public void TestOpMultiplyByScalar()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -200,7 +200,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpMultiplyByValue");
         }
 
-        [Test]
+        [Fact]
         public void TestDivide()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
@@ -217,7 +217,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(r, g, b, a, c, "Testing OpDivide");
         }
 
-        [Test]
+        [Fact]
         public void TestDivideByFactor()
         {
             float r1 = .5f, g1 = .25f, b1 = .7f, a1 = 1.0f;
