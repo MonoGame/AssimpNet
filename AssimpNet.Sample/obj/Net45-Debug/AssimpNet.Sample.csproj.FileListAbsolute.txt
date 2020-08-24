@@ -1,1 +1,2 @@
 C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net45-Debug\AssimpNet.Sample.csproj.CoreCompileInputs.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net45-Debug\AssimpNet.Sample.csprojAssemblyReference.cache

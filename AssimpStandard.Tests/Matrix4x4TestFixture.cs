@@ -22,7 +22,7 @@
 
 using System;
 using NUnit.Framework;
-using TK = OpenTK;
+using OpenToolkit.Mathematics;
 
 namespace Assimp.Test
 {
@@ -77,14 +77,14 @@ namespace Assimp.Test
             Vector3D axis = new Vector3D(.25f, .5f, 0.0f);
             axis.Normalize();
 
-            Quaternion rot = new Quaternion(axis, TK.MathHelper.Pi);
+            Quaternion rot = new Quaternion(axis, MathHelper.Pi);
             float x = 50.0f;
             float y = 100.0f;
             float z = -50.0f;
 
             float scale = 2.0f;
 
-            Matrix4x4 m = Matrix4x4.FromScaling(new Vector3D(scale, scale, scale)) * Matrix4x4.FromAngleAxis(TK.MathHelper.Pi, axis) * Matrix4x4.FromTranslation(new Vector3D(x, y, z));
+            Matrix4x4 m = Matrix4x4.FromScaling(new Vector3D(scale, scale, scale)) * Matrix4x4.FromAngleAxis(MathHelper.Pi, axis) * Matrix4x4.FromTranslation(new Vector3D(x, y, z));
 
             Vector3D scaling1;
             Quaternion rotation1;
@@ -100,7 +100,7 @@ namespace Assimp.Test
             TestHelper.AssertEquals(rotation1.X, rotation1.Y, rotation1.Z, rotation1.W, rotation2, "Testing decomposed rotation output");
             TestHelper.AssertEquals(translation1.X, translation1.Y, translation1.Z, translation2, "Testing decomposed translation output");
 
-            m = Matrix4x4.FromAngleAxis(TK.MathHelper.Pi, axis) * Matrix4x4.FromTranslation(new Vector3D(x, y, z));
+            m = Matrix4x4.FromAngleAxis(MathHelper.Pi, axis) * Matrix4x4.FromTranslation(new Vector3D(x, y, z));
 
             m.DecomposeNoScaling(out rotation2, out translation2);
 
@@ -111,10 +111,10 @@ namespace Assimp.Test
         [Test]
         public void TestDeterminant()
         {
-            float x = TK.MathHelper.Pi;
-            float y = TK.MathHelper.PiOver3;
+            float x = MathHelper.Pi;
+            float y = MathHelper.PiOver3;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x) * TK.Matrix4.CreateRotationY(y);
+            Matrix4 tkM = Matrix4.CreateRotationX(x) * Matrix4.CreateRotationY(y);
             Matrix4x4 m = Matrix4x4.FromRotationX(x) * Matrix4x4.FromRotationY(y);
 
             float tkDet = tkM.Determinant;
@@ -125,8 +125,8 @@ namespace Assimp.Test
         [Test]
         public void TestFromAngleAxis()
         {
-            TK.Matrix4 tkM = TK.Matrix4.CreateFromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.Pi);
-            Matrix4x4 m = Matrix4x4.FromAngleAxis(TK.MathHelper.Pi, new Vector3D(0, 1, 0));
+            Matrix4 tkM = Matrix4.CreateFromAxisAngle(Vector3.UnitY, MathHelper.Pi);
+            Matrix4x4 m = Matrix4x4.FromAngleAxis(MathHelper.Pi, new Vector3D(0, 1, 0));
 
             TestHelper.AssertEquals(tkM, m, "Testing from angle axis");
         }
@@ -134,11 +134,11 @@ namespace Assimp.Test
         [Test]
         public void TestFromEulerAnglesXYZ()
         {
-            float x = TK.MathHelper.Pi;
+            float x = MathHelper.Pi;
             float y = 0.0f;
-            float z = TK.MathHelper.PiOver4;
+            float z = MathHelper.PiOver4;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x) * TK.Matrix4.CreateRotationZ(z);
+            Matrix4 tkM = Matrix4.CreateRotationX(x) * Matrix4.CreateRotationZ(z);
             Matrix4x4 m = Matrix4x4.FromEulerAnglesXYZ(x, y, z);
             Matrix4x4 m2 = Matrix4x4.FromEulerAnglesXYZ(new Vector3D(x, y, z));
 
@@ -149,9 +149,9 @@ namespace Assimp.Test
         [Test]
         public void TestFromRotationX()
         {
-            float x = TK.MathHelper.Pi;
+            float x = MathHelper.Pi;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x);
+            Matrix4 tkM = Matrix4.CreateRotationX(x);
             Matrix4x4 m = Matrix4x4.FromRotationX(x);
 
             TestHelper.AssertEquals(tkM, m, "Testing from rotation x");
@@ -160,9 +160,9 @@ namespace Assimp.Test
         [Test]
         public void TestFromRotationY()
         {
-            float y = TK.MathHelper.Pi;
+            float y = MathHelper.Pi;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationY(y);
+            Matrix4 tkM = Matrix4.CreateRotationY(y);
             Matrix4x4 m = Matrix4x4.FromRotationY(y);
 
             TestHelper.AssertEquals(tkM, m, "Testing from rotation y");
@@ -171,9 +171,9 @@ namespace Assimp.Test
         [Test]
         public void TestFromRotationZ()
         {
-            float z = TK.MathHelper.Pi;
+            float z = MathHelper.Pi;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationZ(z);
+            Matrix4 tkM = Matrix4.CreateRotationZ(z);
             Matrix4x4 m = Matrix4x4.FromRotationZ(z);
 
             TestHelper.AssertEquals(tkM, m, "Testing from rotation z");
@@ -186,7 +186,7 @@ namespace Assimp.Test
             float y = 2.0f;
             float z = 3.0f;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateScale(x, y, z);
+            Matrix4 tkM = Matrix4.CreateScale(x, y, z);
             Matrix4x4 m = Matrix4x4.FromScaling(new Vector3D(x, y, z));
 
             TestHelper.AssertEquals(tkM, m, "Testing from scaling");
@@ -198,7 +198,7 @@ namespace Assimp.Test
             Vector3D from = new Vector3D(1, 0, 0);
             Vector3D to = new Vector3D(0, 1, 0);
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationZ(TK.MathHelper.PiOver2);
+            Matrix4 tkM = Matrix4.CreateRotationZ(MathHelper.PiOver2);
             Matrix4x4 m = Matrix4x4.FromToMatrix(from, to);
 
             TestHelper.AssertEquals(tkM, m, "Testing From-To rotation matrix");
@@ -211,7 +211,7 @@ namespace Assimp.Test
             float y = -100.0f;
             float z = 5.0f;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateTranslation(x, y, z);
+            Matrix4 tkM = Matrix4.CreateTranslation(x, y, z);
             Matrix4x4 m = Matrix4x4.FromTranslation(new Vector3D(x, y, z));
 
             TestHelper.AssertEquals(tkM, m, "Testing from translation");
@@ -220,10 +220,10 @@ namespace Assimp.Test
         [Test]
         public void TestInverse()
         {
-            float x = TK.MathHelper.PiOver6;
-            float y = TK.MathHelper.Pi;
+            float x = MathHelper.PiOver6;
+            float y = MathHelper.Pi;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x) * TK.Matrix4.CreateRotationY(y);
+            Matrix4 tkM = Matrix4.CreateRotationX(x) * Matrix4.CreateRotationY(y);
             Matrix4x4 m = Matrix4x4.FromRotationX(x) * Matrix4x4.FromRotationY(y);
 
             tkM.Invert();
@@ -235,7 +235,7 @@ namespace Assimp.Test
         [Test]
         public void TestIdentity()
         {
-            TK.Matrix4 tkM = TK.Matrix4.Identity;
+            Matrix4 tkM = Matrix4.Identity;
             Matrix4x4 m = Matrix4x4.Identity;
 
             Assert.IsTrue(m.IsIdentity, "Testing IsIdentity");
@@ -245,10 +245,10 @@ namespace Assimp.Test
         [Test]
         public void TestTranspose()
         {
-            float x = TK.MathHelper.Pi;
-            float y = TK.MathHelper.PiOver4;
+            float x = MathHelper.Pi;
+            float y = MathHelper.PiOver4;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x) * TK.Matrix4.CreateRotationY(y);
+            Matrix4 tkM = Matrix4.CreateRotationX(x) * Matrix4.CreateRotationY(y);
             Matrix4x4 m = Matrix4x4.FromRotationX(x) * Matrix4x4.FromRotationY(y);
 
             tkM.Transpose();
@@ -259,10 +259,10 @@ namespace Assimp.Test
         [Test]
         public void TestOpMultiply()
         {
-            float x = TK.MathHelper.Pi;
-            float y = TK.MathHelper.PiOver3;
+            float x = MathHelper.Pi;
+            float y = MathHelper.PiOver3;
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateRotationX(x) * TK.Matrix4.CreateRotationY(y);
+            Matrix4 tkM = Matrix4.CreateRotationX(x) * Matrix4.CreateRotationY(y);
             Matrix4x4 m = Matrix4x4.FromRotationX(x) * Matrix4x4.FromRotationY(y);
 
             TestHelper.AssertEquals(tkM, m, "Testing Op multiply");

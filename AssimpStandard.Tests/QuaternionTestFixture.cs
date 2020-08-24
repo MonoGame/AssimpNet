@@ -21,10 +21,12 @@
 */
 
 using NUnit.Framework;
-using TK = OpenTK;
+using OpenToolkit.Mathematics;
 
 namespace Assimp.Test
 {
+    using Quaternion = OpenToolkit.Mathematics.Quaternion;
+
     [TestFixture]
     public class QuaternionTestFixture
     {
@@ -55,8 +57,8 @@ namespace Assimp.Test
         [Test]
         public void TestConjugate()
         {
-            TK.Quaternion tkQ = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.PiOver2);
-            Quaternion q = new Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
+            Quaternion tkQ = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
+            Assimp.Quaternion q = new Assimp.Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
 
             tkQ.Conjugate();
             q.Conjugate();
@@ -67,10 +69,10 @@ namespace Assimp.Test
         [Test]
         public void TestGetMatrix()
         {
-            TK.Quaternion tkQ = TK.Quaternion.FromAxisAngle(new TK.Vector3(.25f, .5f, 0.0f), TK.MathHelper.PiOver2);
-            Quaternion q = new Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
+            Quaternion tkQ = Quaternion.FromAxisAngle(new Vector3(.25f, .5f, 0.0f), MathHelper.PiOver2);
+            Assimp.Quaternion q = new Assimp.Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
 
-            TK.Matrix4 tkM = TK.Matrix4.CreateFromAxisAngle(new TK.Vector3(.25f, .5f, 0.0f), TK.MathHelper.PiOver2);
+            Matrix4 tkM = Matrix4.CreateFromAxisAngle(new Vector3(.25f, .5f, 0.0f), MathHelper.PiOver2);
             Matrix4x4 m = q.GetMatrix();
 
             TestHelper.AssertEquals(tkM, m, "Testing GetMatrix");
@@ -79,8 +81,8 @@ namespace Assimp.Test
         [Test]
         public void TestNormalize()
         {
-            TK.Quaternion tkQ = TK.Quaternion.FromAxisAngle(new TK.Vector3(.25f, .5f, 0.0f), TK.MathHelper.PiOver2);
-            Quaternion q = new Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
+            Quaternion tkQ = Quaternion.FromAxisAngle(new Vector3(.25f, .5f, 0.0f), MathHelper.PiOver2);
+            Assimp.Quaternion q = new Assimp.Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
 
             tkQ.Normalize();
             q.Normalize();
@@ -91,14 +93,14 @@ namespace Assimp.Test
         [Test]
         public void TestRotate()
         {
-            TK.Vector3 tkV1 = new TK.Vector3(0, 5, 10);
+            Vector3 tkV1 = new Vector3(0, 5, 10);
             Vector3D v1 = new Vector3D(0, 5, 10);
 
-            TK.Quaternion tkQ = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.PiOver2);
-            Quaternion q = new Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
+            Quaternion tkQ = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
+            Assimp.Quaternion q = new Assimp.Quaternion(tkQ.W, tkQ.X, tkQ.Y, tkQ.Z);
 
-            TK.Vector3 tkV2 = TK.Vector3.Transform(tkV1, tkQ);
-            Vector3D v2 = Quaternion.Rotate(v1, q);
+            Vector3 tkV2 = Vector3.Transform(tkV1, tkQ);
+            Vector3D v2 = Assimp.Quaternion.Rotate(v1, q);
 
             TestHelper.AssertEquals(tkV2.X, tkV2.Y, tkV2.Z, v2, "Testing rotate");
         }
@@ -106,15 +108,15 @@ namespace Assimp.Test
         [Test]
         public void TestSlerp()
         {
-            TK.Quaternion tkQ1 = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.PiOver2);
-            Quaternion q1 = new Quaternion(tkQ1.W, tkQ1.X, tkQ1.Y, tkQ1.Z);
+            Quaternion tkQ1 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
+            Assimp.Quaternion q1 = new Assimp.Quaternion(tkQ1.W, tkQ1.X, tkQ1.Y, tkQ1.Z);
 
-            TK.Quaternion tkQ2 = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.Pi);
-            Quaternion q2 = new Quaternion(tkQ2.W, tkQ2.X, tkQ2.Y, tkQ2.Z);
+            Quaternion tkQ2 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.Pi);
+            Assimp.Quaternion q2 = new Assimp.Quaternion(tkQ2.W, tkQ2.X, tkQ2.Y, tkQ2.Z);
 
-            Quaternion q = Quaternion.Slerp(q1, q2, .5f);
+            Assimp.Quaternion q = Assimp.Quaternion.Slerp(q1, q2, .5f);
 
-            TK.Quaternion tkQ = TK.Quaternion.Slerp(tkQ1, tkQ2, .5f);
+            Quaternion tkQ = Quaternion.Slerp(tkQ1, tkQ2, .5f);
 
             TestHelper.AssertEquals(tkQ.X, tkQ.Y, tkQ.Z, tkQ.W, q, "Testing slerp");
         }
@@ -122,15 +124,15 @@ namespace Assimp.Test
         [Test]
         public void TestOpMultiply()
         {
-            TK.Quaternion tkQ1 = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.PiOver2);
-            Quaternion q1 = new Quaternion(tkQ1.W, tkQ1.X, tkQ1.Y, tkQ1.Z);
+            Quaternion tkQ1 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.PiOver2);
+            Assimp.Quaternion q1 = new Assimp.Quaternion(tkQ1.W, tkQ1.X, tkQ1.Y, tkQ1.Z);
 
-            TK.Quaternion tkQ2 = TK.Quaternion.FromAxisAngle(TK.Vector3.UnitY, TK.MathHelper.Pi);
-            Quaternion q2 = new Quaternion(tkQ2.W, tkQ2.X, tkQ2.Y, tkQ2.Z);
+            Quaternion tkQ2 = Quaternion.FromAxisAngle(Vector3.UnitY, MathHelper.Pi);
+            Assimp.Quaternion q2 = new Assimp.Quaternion(tkQ2.W, tkQ2.X, tkQ2.Y, tkQ2.Z);
 
-            Quaternion q = q1 * q2;
+            Assimp.Quaternion q = q1 * q2;
 
-            TK.Quaternion tkQ = tkQ1 * tkQ2;
+            Quaternion tkQ = tkQ1 * tkQ2;
 
             TestHelper.AssertEquals(tkQ.X, tkQ.Y, tkQ.Z, tkQ.W, q, "Testing Op multiply");
         }

@@ -458,6 +458,133 @@
           "build/netcoreapp2.0/NUnit3TestAdapter.props": {}
         }
       },
+      "OpenTK/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Graphics": "4.0.0-pre9.3",
+          "OpenToolkit.Input": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3",
+          "OpenToolkit.OpenAL": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.Common": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.Desktop": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.GraphicsLibraryFramework": "4.0.0-pre9.3"
+        }
+      },
+      "OpenToolkit.Core/4.0.0-pre9.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OpenToolkit.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Core.dll": {}
+        }
+      },
+      "OpenToolkit.Graphics/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Mathematics": "[4.0.0-pre9.3, 4.1.0-pre9)"
+        },
+        "compile": {
+          "lib/netstandard2.0/OpenToolkit.Graphics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Graphics.dll": {}
+        }
+      },
+      "OpenToolkit.Input/4.0.0-pre9.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OpenToolkit.Input.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Input.dll": {}
+        }
+      },
+      "OpenToolkit.Mathematics/4.0.0-pre9.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OpenToolkit.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Mathematics.dll": {}
+        }
+      },
+      "OpenToolkit.OpenAL/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Mathematics": "[4.0.0-pre9.3, 4.1.0-pre9)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenToolkit.OpenAL.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenToolkit.OpenAL.dll": {}
+        }
+      },
+      "opentoolkit.redist.glfw/3.3.0-pre20190419183326": {
+        "type": "package",
+        "build": {
+          "build/opentoolkit.redist.glfw.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libglfw.so.3.3": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/win-x64/native/glfw3-x64.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/glfw3-x86.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "OpenToolkit.Windowing.Common/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Mathematics": "[4.0.0-pre9.3, 4.1.0-pre9)"
+        },
+        "compile": {
+          "lib/netstandard2.0/OpenToolkit.Windowing.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Windowing.Common.dll": {}
+        }
+      },
+      "OpenToolkit.Windowing.Desktop/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Mathematics": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Windowing.Common": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "OpenToolkit.Windowing.GraphicsLibraryFramework": "[4.0.0-pre9.3, 4.1.0-pre9)"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.dll": {}
+        }
+      },
+      "OpenToolkit.Windowing.GraphicsLibraryFramework/4.0.0-pre9.3": {
+        "type": "package",
+        "dependencies": {
+          "OpenToolkit.Core": "[4.0.0-pre9.3, 4.1.0-pre9)",
+          "opentoolkit.redist.glfw": "[3.3.0-pre20190419183326, 3.4.0-pre)"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.dll": {}
+        }
+      },
       "runtime.native.System/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1225,6 +1352,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "AssimpStandard/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AssimpStandard.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AssimpStandard.dll": {}
+        }
       }
     }
   },
@@ -1905,6 +2042,150 @@
         "build/netcoreapp2.0/nunit.engine.dll",
         "nunit3testadapter.3.15.1.nupkg.sha512",
         "nunit3testadapter.nuspec"
+      ]
+    },
+    "OpenTK/4.0.0-pre9.3": {
+      "sha512": "2n0AbrP18cUedhZ5z2jf7uyz+moczq7PMPSIVG6w5U2CmOQireqzLDSq5o9oYBRWMiZTE2Z5REI4WmUsN7W/XA==",
+      "type": "package",
+      "path": "opentk/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "opentk.4.0.0-pre9.3.nupkg.sha512",
+        "opentk.nuspec"
+      ]
+    },
+    "OpenToolkit.Core/4.0.0-pre9.3": {
+      "sha512": "CTrCmnmCj1E4eAPulJx0aWVMQFY/Xa2C/L4a6InZAE2O3WNb2BzqHzUsP5RZMPjdS5lro2xo/2xHdYvNn0taBg==",
+      "type": "package",
+      "path": "opentoolkit.core/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/OpenToolkit.Core.dll",
+        "lib/netstandard2.0/OpenToolkit.Core.pdb",
+        "lib/netstandard2.0/OpenToolkit.Core.xml",
+        "opentoolkit.core.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.core.nuspec"
+      ]
+    },
+    "OpenToolkit.Graphics/4.0.0-pre9.3": {
+      "sha512": "gz9kCzPa670kiNDf/bXLuCz7W0MJBKl538cionK4NZQhOFhIwI3nEBeSbL4TehwKAIJLc6JHuYW+5paNeNo9ww==",
+      "type": "package",
+      "path": "opentoolkit.graphics/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/OpenToolkit.Graphics.dll",
+        "lib/netstandard2.0/OpenToolkit.Graphics.pdb",
+        "lib/netstandard2.0/OpenToolkit.Graphics.xml",
+        "opentoolkit.graphics.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.graphics.nuspec"
+      ]
+    },
+    "OpenToolkit.Input/4.0.0-pre9.3": {
+      "sha512": "/7PaIK5MvZ6gIGH9Kx3PwYyU8Y3bUg0/4MFk8AMe09KhUA+PJeTXOPt46YSXX/X9wYJP+pI2/naZj7OPaV3CEg==",
+      "type": "package",
+      "path": "opentoolkit.input/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/OpenToolkit.Input.dll",
+        "lib/netstandard2.0/OpenToolkit.Input.pdb",
+        "lib/netstandard2.0/OpenToolkit.Input.xml",
+        "opentoolkit.input.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.input.nuspec"
+      ]
+    },
+    "OpenToolkit.Mathematics/4.0.0-pre9.3": {
+      "sha512": "qd/51NGIzzKw0ZFfxdM3evDWRmaNu5hR/2DOyo4QOllF//IR8tOgzhJIvK3MNNG5tHT95KENgcsmxUsyBgAc3w==",
+      "type": "package",
+      "path": "opentoolkit.mathematics/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/OpenToolkit.Mathematics.dll",
+        "lib/netstandard2.0/OpenToolkit.Mathematics.pdb",
+        "lib/netstandard2.0/OpenToolkit.Mathematics.xml",
+        "opentoolkit.mathematics.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.mathematics.nuspec"
+      ]
+    },
+    "OpenToolkit.OpenAL/4.0.0-pre9.3": {
+      "sha512": "9QYJhJ+iY/0FFcnIvQKYV2gMARj/U24txhruH/hF2Lyjs53BTwTOmGHbbuap2Bowh1b48eSi9i6mwS0wVglwiA==",
+      "type": "package",
+      "path": "opentoolkit.openal/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/OpenToolkit.OpenAL.dll",
+        "lib/netcoreapp3.1/OpenToolkit.OpenAL.pdb",
+        "lib/netcoreapp3.1/OpenToolkit.OpenAL.xml",
+        "opentoolkit.openal.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.openal.nuspec"
+      ]
+    },
+    "opentoolkit.redist.glfw/3.3.0-pre20190419183326": {
+      "sha512": "P5JbJnAovMfB8EuVZZxZ9iO98dfENN7l5KyXp5/Ctc55IgKCpl1Q+vqDZ+FUFoowBeFQM1jJI5mZCLn+/Yj3tQ==",
+      "type": "package",
+      "path": "opentoolkit.redist.glfw/3.3.0-pre20190419183326",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/opentoolkit.redist.glfw.targets",
+        "opentoolkit.redist.glfw.3.3.0-pre20190419183326.nupkg.sha512",
+        "opentoolkit.redist.glfw.nuspec",
+        "runtimes/linux-x64/native/libglfw.so.3.3",
+        "runtimes/win-x64/native/glfw3-x64.dll",
+        "runtimes/win-x86/native/glfw3-x86.dll"
+      ]
+    },
+    "OpenToolkit.Windowing.Common/4.0.0-pre9.3": {
+      "sha512": "h+BhCEeNa9IWoIied0akixm9hxWsl6OI7kL3r+9wbIpgGgvkXX1nmPNK/rD2YBvGtS/pLG78YHCFpzu6bvI/PA==",
+      "type": "package",
+      "path": "opentoolkit.windowing.common/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/OpenToolkit.Windowing.Common.dll",
+        "lib/netstandard2.0/OpenToolkit.Windowing.Common.pdb",
+        "lib/netstandard2.0/OpenToolkit.Windowing.Common.xml",
+        "opentoolkit.windowing.common.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.windowing.common.nuspec"
+      ]
+    },
+    "OpenToolkit.Windowing.Desktop/4.0.0-pre9.3": {
+      "sha512": "l8crAAE5RSQ+VEsOKy8mywFpEBHqTDTwnU8keEHDnfk0p9Hrgw+5Xp357nEr4n+CP28wEWjV4k/3UDCvLdQNYA==",
+      "type": "package",
+      "path": "opentoolkit.windowing.desktop/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/OpenToolkit.Windowing.Desktop.dll",
+        "lib/net472/OpenToolkit.Windowing.Desktop.pdb",
+        "lib/net472/OpenToolkit.Windowing.Desktop.xml",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.dll",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.pdb",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.xml",
+        "opentoolkit.windowing.desktop.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.windowing.desktop.nuspec"
+      ]
+    },
+    "OpenToolkit.Windowing.GraphicsLibraryFramework/4.0.0-pre9.3": {
+      "sha512": "GVxLdZC7LM/hW6qtEMjkFaigZHVJAkQCR0otp17cIWGF4z05Sm7zah8ILLFfpohfL7sB184zQILO1Qlo4cKrZw==",
+      "type": "package",
+      "path": "opentoolkit.windowing.graphicslibraryframework/4.0.0-pre9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/OpenToolkit.Windowing.GraphicsLibraryFramework.dll",
+        "lib/net472/OpenToolkit.Windowing.GraphicsLibraryFramework.pdb",
+        "lib/net472/OpenToolkit.Windowing.GraphicsLibraryFramework.xml",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.dll",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.pdb",
+        "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.xml",
+        "opentoolkit.windowing.graphicslibraryframework.4.0.0-pre9.3.nupkg.sha512",
+        "opentoolkit.windowing.graphicslibraryframework.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -4618,12 +4899,19 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "AssimpStandard/1.0.0": {
+      "type": "project",
+      "path": "../AssimpStandard/AssimpStandard.csproj",
+      "msbuildProject": "../AssimpStandard/AssimpStandard.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AssimpStandard >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
+      "OpenTK >= 4.0.0-pre9.3",
       "nunit >= 3.12.0"
     ]
   },
@@ -4652,7 +4940,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard\\AssimpStandard.csproj": {
+              "projectPath": "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard\\AssimpStandard.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4671,6 +4963,10 @@
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[3.15.1, )"
+          },
+          "OpenTK": {
+            "target": "Package",
+            "version": "[4.0.0-pre9.3, )"
           },
           "nunit": {
             "target": "Package",
