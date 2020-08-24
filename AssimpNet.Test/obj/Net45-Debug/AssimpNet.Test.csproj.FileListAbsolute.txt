@@ -1,0 +1,1 @@
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Test\obj\Net45-Debug\AssimpNet.Test.csproj.CoreCompileInputs.cache

@@ -85,13 +85,6 @@
     <Compile Include="Vector3DTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssimpNet\AssimpNet-Old.csproj">
-      <Project>{3415FF29-C0BE-44FC-AD34-94796118E690}</Project>
-      <Name>AssimpNet-Old</Name>
-      <SpecificVersion>true</SpecificVersion>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="TestFiles\Bob.md5anim">
