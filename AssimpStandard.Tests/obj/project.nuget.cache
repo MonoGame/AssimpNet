@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IRxRNfao0N5jJezjLHSsNtSzd8Y34Rl3i+ZERhu/WDxJxx8Tg/F6VnYGLaUOh0Xh5Zz/pbmibkoPIwstweCN4A==",
+  "dgSpecHash": "WH84wSg+imaP5i4pU8QnDs4s5xaJE6yBH5RlhalGVvBOrOpN0c79NbQmH5c6XBIa+zvfARP1yspOX/C9LpCulA==",
   "success": true,
   "projectFilePath": "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard.Tests\\AssimpStandard.Tests.csproj",
   "expectedPackageFiles": [
@@ -105,7 +105,8 @@
     "C:\\Users\\matth\\.nuget\\packages\\xunit.assert\\2.4.1\\xunit.assert.2.4.1.nupkg.sha512",
     "C:\\Users\\matth\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\matth\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
-    "C:\\Users\\matth\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512"
+    "C:\\Users\\matth\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": []
 }

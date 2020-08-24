@@ -23,6 +23,7 @@
 using FluentAssertions;
 using System;
 using System.IO;
+using System.Reflection;
 using Xunit;
 
 namespace Assimp.Test
@@ -32,7 +33,7 @@ namespace Assimp.Test
         [Fact]
         public void TestObjLoad()
         {
-            String path = Path.Combine(TestHelper.RootPath, "TestFiles/sphere.obj");
+            String path = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "TestFiles\\sphere.obj");
 
             AssimpContext importer = new AssimpContext();
             Scene scene = importer.ImportFile(path);

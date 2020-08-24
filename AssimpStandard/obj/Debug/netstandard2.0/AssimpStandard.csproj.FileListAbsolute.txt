@@ -9,3 +9,4 @@ C:\Users\matth\source\repos\AssimpNet\AssimpStandard\bin\Debug\netstandard2.0\As
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard\bin\Debug\netstandard2.0\AssimpStandard.pdb
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard\obj\Debug\netstandard2.0\AssimpStandard.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard\obj\Debug\netstandard2.0\AssimpStandard.pdb
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard\obj\Debug\netstandard2.0\AssimpStandard.csprojAssemblyReference.cache
