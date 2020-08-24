@@ -1,0 +1,17 @@
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\Assimp32.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\Assimp64.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpLicense.txt
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\duckCM.bmp
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\duck.dae
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpNet.Sample.exe.config
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpNet.Sample.exe
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpNet.Sample.pdb
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpNet.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\OpenTK.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\AssimpNet.pdb
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\bin\Net20-Debug\OpenTK.xml
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net20-Debug\AssimpNet.Sample.csprojAssemblyReference.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net20-Debug\AssimpNet.Sample.csproj.CoreCompileInputs.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net20-Debug\AssimpNet.Sample.csproj.CopyComplete
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net20-Debug\AssimpNet.Sample.exe
+C:\Users\matth\source\repos\AssimpNet\AssimpNet.Sample\obj\Net20-Debug\AssimpNet.Sample.pdb

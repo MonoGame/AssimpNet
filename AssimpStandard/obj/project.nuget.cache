@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "uoixscSQab+MWrulXHxa4JBJJIHJowgPELT+FB53z1Zl+MO7tm1k7PT1w7LWZ/WdNAsit5bA4Xuad9Zqv451dg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard\\AssimpStandard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matth\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

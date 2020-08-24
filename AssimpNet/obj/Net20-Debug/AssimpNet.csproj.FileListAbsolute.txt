@@ -1,0 +1,9 @@
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\bin\Net20-Debug\Assimp32.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\bin\Net20-Debug\Assimp64.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\bin\Net20-Debug\AssimpLicense.txt
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\bin\Net20-Debug\AssimpNet.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\bin\Net20-Debug\AssimpNet.pdb
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\obj\Net20-Debug\AssimpNet.csprojAssemblyReference.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\obj\Net20-Debug\AssimpNet.csproj.CoreCompileInputs.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\obj\Net20-Debug\AssimpNet.dll
+C:\Users\matth\source\repos\AssimpNet\AssimpNet\obj\Net20-Debug\AssimpNet.pdb
