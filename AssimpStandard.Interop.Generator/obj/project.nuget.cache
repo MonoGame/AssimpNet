@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "OHWYkK/szatUlVhiAstJt6I5CncbhhhbTUluWux1AtW1NbE3ICy8GA1cNMEvIVLZyJ+18WuGcry7DdBSXRZo5w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard.Interop.Generator\\AssimpStandard.Interop.Generator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matth\\.nuget\\packages\\mono.cecil\\0.11.2\\mono.cecil.0.11.2.nupkg.sha512"
+  ],
+  "logs": []
+}
