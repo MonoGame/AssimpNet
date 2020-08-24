@@ -1,0 +1,292 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "AssimpStandard.Sample/1.0.0": {
+        "dependencies": {
+          "AssimpStandard": "1.0.0",
+          "OpenTK": "4.0.0-pre9.3",
+          "System.Drawing.Common": "5.0.0-preview.7.20364.11"
+        },
+        "runtime": {
+          "AssimpStandard.Sample.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/5.0.0-preview.7.20364.11": {},
+      "Microsoft.Win32.SystemEvents/5.0.0-preview.7.20364.11": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0-preview.7.20364.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.36411"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.36411"
+          }
+        }
+      },
+      "OpenTK/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Graphics": "4.0.0-pre9.3",
+          "OpenToolkit.Input": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3",
+          "OpenToolkit.OpenAL": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.Common": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.Desktop": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.GraphicsLibraryFramework": "4.0.0-pre9.3"
+        }
+      },
+      "OpenToolkit.Core/4.0.0-pre9.3": {
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Core.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Graphics/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Graphics.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Input/4.0.0-pre9.3": {
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Input.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Mathematics/4.0.0-pre9.3": {
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Mathematics.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.OpenAL/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenToolkit.OpenAL.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "opentoolkit.redist.glfw/3.3.0-pre20190419183326": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libglfw.so.3.3": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/glfw3-x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/glfw3-x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Windowing.Common/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenToolkit.Windowing.Common.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Windowing.Desktop/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "OpenToolkit.Mathematics": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.Common": "4.0.0-pre9.3",
+          "OpenToolkit.Windowing.GraphicsLibraryFramework": "4.0.0-pre9.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.Desktop.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "OpenToolkit.Windowing.GraphicsLibraryFramework/4.0.0-pre9.3": {
+        "dependencies": {
+          "OpenToolkit.Core": "4.0.0-pre9.3",
+          "opentoolkit.redist.glfw": "3.3.0-pre20190419183326"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/OpenToolkit.Windowing.GraphicsLibraryFramework.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "System.Drawing.Common/5.0.0-preview.7.20364.11": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0-preview.7.20364.11",
+          "Microsoft.Win32.SystemEvents": "5.0.0-preview.7.20364.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "4.0.0.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.36411"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.36411"
+          }
+        }
+      },
+      "AssimpStandard/1.0.0": {
+        "runtime": {
+          "AssimpStandard.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AssimpStandard.Sample/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/5.0.0-preview.7.20364.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wK8YPtEFe3AM5XauQ7Gjnpdqb+k6zoEYrmJ25dg8vUzmblkxTc5SS/yLUFlrGeBrOXvcnv3MtSBSWsPDnUN+gg==",
+      "path": "microsoft.netcore.platforms/5.0.0-preview.7.20364.11",
+      "hashPath": "microsoft.netcore.platforms.5.0.0-preview.7.20364.11.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0-preview.7.20364.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N8UoHngEaDa3VSYTgXz9oTdlwzQrPaFEoKWuNE4g1dp8xCEMzyGy8Z/EIMTqVzZzB0xtgMLSYUBkxmKogO6UCQ==",
+      "path": "microsoft.win32.systemevents/5.0.0-preview.7.20364.11",
+      "hashPath": "microsoft.win32.systemevents.5.0.0-preview.7.20364.11.nupkg.sha512"
+    },
+    "OpenTK/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2n0AbrP18cUedhZ5z2jf7uyz+moczq7PMPSIVG6w5U2CmOQireqzLDSq5o9oYBRWMiZTE2Z5REI4WmUsN7W/XA==",
+      "path": "opentk/4.0.0-pre9.3",
+      "hashPath": "opentk.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Core/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CTrCmnmCj1E4eAPulJx0aWVMQFY/Xa2C/L4a6InZAE2O3WNb2BzqHzUsP5RZMPjdS5lro2xo/2xHdYvNn0taBg==",
+      "path": "opentoolkit.core/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.core.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Graphics/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gz9kCzPa670kiNDf/bXLuCz7W0MJBKl538cionK4NZQhOFhIwI3nEBeSbL4TehwKAIJLc6JHuYW+5paNeNo9ww==",
+      "path": "opentoolkit.graphics/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.graphics.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Input/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/7PaIK5MvZ6gIGH9Kx3PwYyU8Y3bUg0/4MFk8AMe09KhUA+PJeTXOPt46YSXX/X9wYJP+pI2/naZj7OPaV3CEg==",
+      "path": "opentoolkit.input/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.input.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Mathematics/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qd/51NGIzzKw0ZFfxdM3evDWRmaNu5hR/2DOyo4QOllF//IR8tOgzhJIvK3MNNG5tHT95KENgcsmxUsyBgAc3w==",
+      "path": "opentoolkit.mathematics/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.mathematics.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.OpenAL/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9QYJhJ+iY/0FFcnIvQKYV2gMARj/U24txhruH/hF2Lyjs53BTwTOmGHbbuap2Bowh1b48eSi9i6mwS0wVglwiA==",
+      "path": "opentoolkit.openal/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.openal.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "opentoolkit.redist.glfw/3.3.0-pre20190419183326": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P5JbJnAovMfB8EuVZZxZ9iO98dfENN7l5KyXp5/Ctc55IgKCpl1Q+vqDZ+FUFoowBeFQM1jJI5mZCLn+/Yj3tQ==",
+      "path": "opentoolkit.redist.glfw/3.3.0-pre20190419183326",
+      "hashPath": "opentoolkit.redist.glfw.3.3.0-pre20190419183326.nupkg.sha512"
+    },
+    "OpenToolkit.Windowing.Common/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h+BhCEeNa9IWoIied0akixm9hxWsl6OI7kL3r+9wbIpgGgvkXX1nmPNK/rD2YBvGtS/pLG78YHCFpzu6bvI/PA==",
+      "path": "opentoolkit.windowing.common/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.windowing.common.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Windowing.Desktop/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l8crAAE5RSQ+VEsOKy8mywFpEBHqTDTwnU8keEHDnfk0p9Hrgw+5Xp357nEr4n+CP28wEWjV4k/3UDCvLdQNYA==",
+      "path": "opentoolkit.windowing.desktop/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.windowing.desktop.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "OpenToolkit.Windowing.GraphicsLibraryFramework/4.0.0-pre9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GVxLdZC7LM/hW6qtEMjkFaigZHVJAkQCR0otp17cIWGF4z05Sm7zah8ILLFfpohfL7sB184zQILO1Qlo4cKrZw==",
+      "path": "opentoolkit.windowing.graphicslibraryframework/4.0.0-pre9.3",
+      "hashPath": "opentoolkit.windowing.graphicslibraryframework.4.0.0-pre9.3.nupkg.sha512"
+    },
+    "System.Drawing.Common/5.0.0-preview.7.20364.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ARe8WzFiE7MGqkPPl4Hnx75eOB/U84HhH/tWIXyBoX6y8dJrjCikuPx6mFu58ygTxcNcutH1I9LHDVv2X3UEKQ==",
+      "path": "system.drawing.common/5.0.0-preview.7.20364.11",
+      "hashPath": "system.drawing.common.5.0.0-preview.7.20364.11.nupkg.sha512"
+    },
+    "AssimpStandard/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

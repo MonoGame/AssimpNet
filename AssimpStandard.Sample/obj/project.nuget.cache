@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "IJsu02RN3EAy38mnyc3a8EWwWZ4RoMzFQypoI5q0nQRMyOQVm8Qf+dWlQsctMNT2fbstxUKEGsPpxls1zpEAgg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\matth\\source\\repos\\AssimpNet\\AssimpStandard.Sample\\AssimpStandard.Sample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matth\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0-preview.7.20364.11\\microsoft.netcore.platforms.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0-preview.7.20364.11\\microsoft.win32.systemevents.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentk\\4.0.0-pre9.3\\opentk.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.core\\4.0.0-pre9.3\\opentoolkit.core.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.graphics\\4.0.0-pre9.3\\opentoolkit.graphics.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.input\\4.0.0-pre9.3\\opentoolkit.input.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.mathematics\\4.0.0-pre9.3\\opentoolkit.mathematics.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.openal\\4.0.0-pre9.3\\opentoolkit.openal.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.redist.glfw\\3.3.0-pre20190419183326\\opentoolkit.redist.glfw.3.3.0-pre20190419183326.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.windowing.common\\4.0.0-pre9.3\\opentoolkit.windowing.common.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.windowing.desktop\\4.0.0-pre9.3\\opentoolkit.windowing.desktop.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\opentoolkit.windowing.graphicslibraryframework\\4.0.0-pre9.3\\opentoolkit.windowing.graphicslibraryframework.4.0.0-pre9.3.nupkg.sha512",
+    "C:\\Users\\matth\\.nuget\\packages\\system.drawing.common\\5.0.0-preview.7.20364.11\\system.drawing.common.5.0.0-preview.7.20364.11.nupkg.sha512"
+  ],
+  "logs": []
+}
