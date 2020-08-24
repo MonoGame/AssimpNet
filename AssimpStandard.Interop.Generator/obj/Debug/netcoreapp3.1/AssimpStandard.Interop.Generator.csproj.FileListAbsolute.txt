@@ -1,9 +1,9 @@
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\bin\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.deps.json
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\bin\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.dll
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.AssemblyInfoInputs.cache
-C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.AssemblyInfo.cs
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\bin\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.pdb
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.csprojAssemblyReference.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.AssemblyInfoInputs.cache
+C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.AssemblyInfo.cs
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.csproj.CoreCompileInputs.cache
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.dll
 C:\Users\matth\source\repos\AssimpNet\AssimpStandard.Interop.Generator\obj\Debug\netcoreapp3.1\AssimpStandard.Interop.Generator.pdb

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssimpStandard", "AssimpStandard\AssimpStandard.csproj", "{2B56C655-477C-44E9-B79E-FC0286407935}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssimpStandard", "AssimpStandard\AssimpStandard.csproj", "{2B56C655-477C-44E9-B79E-FC0286407935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssimpStandard.Tests", "AssimpStandard.Tests\AssimpStandard.Tests.csproj", "{A67C3607-C16D-49BA-A392-60B9C65246E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssimpStandard.Tests", "AssimpStandard.Tests\AssimpStandard.Tests.csproj", "{A67C3607-C16D-49BA-A392-60B9C65246E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssimpStandard.Sample", "AssimpStandard.Sample\AssimpStandard.Sample.csproj", "{3647CC9A-C736-4D5F-8BB8-8892600A2BE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssimpStandard.Sample", "AssimpStandard.Sample\AssimpStandard.Sample.csproj", "{3647CC9A-C736-4D5F-8BB8-8892600A2BE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssimpStandard.Interop.Generator", "AssimpStandard.Interop.Generator\AssimpStandard.Interop.Generator.csproj", "{BB59B0A3-A61B-4CFF-A017-52B47B6AD1E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssimpStandard.Interop.Generator", "AssimpStandard.Interop.Generator\AssimpStandard.Interop.Generator.csproj", "{BB59B0A3-A61B-4CFF-A017-52B47B6AD1E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
